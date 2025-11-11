@@ -272,3 +272,6 @@ FORM show_status_data.
       lo_table->display( ).
   CATCH cx_salv_msg.
   ENDTRY.
+
+ENDFORM.
+TESTE
