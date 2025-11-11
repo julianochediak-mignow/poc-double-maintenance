@@ -13,9 +13,6 @@ TYPES: BEGIN OF ty_pricing_data,
          kposn TYPE konv-kposn,
          kbetr TYPE konv-kbetr,
          kschl TYPE konv-kschl,
-*---------------------------------------------------------------------*
-* Declarações de tipos                                                *
-*---------------------------------------------------------------------*
          waers TYPE konv-waers,
          kwert TYPE konv-kwert,
        END OF ty_pricing_data.
@@ -84,9 +81,7 @@ FORM extract_data.
 
     SELECT knumv
            kposn
- *---------------------------------------------------------------------*
-* Declarações de tipos                                                *
-*---------------------------------------------------------------------*          kbetr
+           kbetr
            kschl
            waers
            kwert
@@ -134,9 +129,7 @@ FORM extract_data.
 ENDFORM.
 
 FORM display_alv.
-*---------------------------------------------------------------------*
-* Declarações de tipos                                                *
-*---------------------------------------------------------------------*
+
   " Verificar se há dados para exibir
   IF gt_pricing IS INITIAL AND gt_sales IS INITIAL AND gt_status IS INITIAL.
     MESSAGE 'Nenhum dado selecionado ou encontrado!' TYPE 'I'.
@@ -171,9 +164,7 @@ FORM show_pricing_data.
 
       lo_columns = lo_table->get_columns( ).
 
-    *---------------------------------------------------------------------*
-* Declarações de tipos                                                *
-*---------------------------------------------------------------------*  lo_column ?= lo_columns->get_column( 'KNUMV' ).
+      lo_column ?= lo_columns->get_column( 'KNUMV' ).
       lo_column->set_short_text( 'Doc.' ).
 
       lo_column ?= lo_columns->get_column( 'KPOSN' ).
@@ -182,9 +173,7 @@ FORM show_pricing_data.
       lo_column ?= lo_columns->get_column( 'KBETR' ).
       lo_column->set_short_text( 'ValorCond.' ).
 
- *---------------------------------------------------------------------*
-* Declarações de tipos                                                *
-*---------------------------------------------------------------------*     lo_column ?= lo_columns->get_column( 'KSCHL' ).
+      lo_column ?= lo_columns->get_column( 'KSCHL' ).
       lo_column->set_short_text( 'Tipo' ).
 
       lo_column ?= lo_columns->get_column( 'WAERS' ).
@@ -219,9 +208,7 @@ FORM show_sales_data.
 
       lo_column ?= lo_columns->get_column( 'VBELN' ).
       lo_column->set_short_text( 'Doc. Venda' ).
-*---------------------------------------------------------------------*
-* Declarações de tipos                                                *
-*---------------------------------------------------------------------*
+
       lo_column ?= lo_columns->get_column( 'AUART' ).
       lo_column->set_short_text( 'Tipo' ).
 
